@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT с Юлей — Юлия Овчинникова</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700;900&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- NAV -->
+    <nav id="nav">
+        <a class="nav-logo" href="#">IT <span>с Юлей</span></a>
+        <ul class="nav-links">
+            <li><a href="#about">Обо мне</a></li>
+            <li><a href="#program">Программа</a></li>
+            <li><a href="#cases">Кейсы</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#tariffs" class="nav-cta">Начать обучение</a></li>
+        </ul>
+        <button class="nav-burger" id="burger" aria-label="Меню">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-grid-lines"></div>
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+        <div class="hero-orb hero-orb-3"></div>
+        <div class="hero-left">
+            <div class="hero-tag">
+                <div class="hero-tag-dot"></div>
+                Менторская программа
+            </div>
+            <h1 class="hero-title">
+                <span class="line-accent">Бизнес-анализ</span><br>
+                с нуля
+            </h1>
+            <div class="hero-subtitle-block">IT с Юлей</div>
+            <p class="hero-desc">
+                Меня зовут <strong>Юлия Овчинникова</strong> — ведущий бизнес-аналитик
+                с <strong>5 годами</strong> в заказной разработке. Реализую проекты для
+                крупных корпораций и госструктур. Помогу вам войти в IT и построить
+                карьеру аналитика.
+            </p>
+            <div class="hero-btns">
+                <a href="#program" class="btn-primary"><span>Смотреть программу</span></a>
+                <a href="#about" class="btn-secondary">Обо мне</a>
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="photo-frame">
+                <div class="photo-card">
+                    <img src="img/photo.png" alt="Юлия Овчинникова" class="photo-img">
+                    <div class="photo-badge">Эксперт</div>
+                    <div class="photo-content">
+                        <div class="photo-name">Юлия Овчинникова</div>
+                        <div class="photo-role">Ведущий бизнес-аналитик · IT с Юлей</div>
+                    </div>
+                </div>
+                <div class="float-card float-card-1">
+                    <div class="float-icon float-icon-1">🏆</div>
+                    <div>
+                        <div class="float-label">Опыт в IT</div>
+                        <div class="float-value">5 лет</div>
+                    </div>
+                </div>
+                <div class="float-card float-card-2">
+                    <div class="float-icon float-icon-2">🚀</div>
+                    <div>
+                        <div class="float-label">Крупных проектов</div>
+                        <div class="float-value">50+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats-bar">
+        <div class="stat-item reveal">
+            <span class="stat-num" data-target="5">0</span>
+            <div class="stat-label">Лет в заказной разработке</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-1">
+            <span class="stat-num" data-target="50">0</span>
+            <div class="stat-label">Реализованных проектов</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-2">
+            <span class="stat-num" data-target="20">0</span>
+            <div class="stat-label">Консультаций проведено</div>
+        </div>
+    </div>
+
+    <!-- TRUST -->
+    <section class="trust-section" id="about">
+        <div class="trust-inner">
+            <div class="trust-left reveal">
+                <!-- Удалён .trust-eyebrow (п.1) -->
+                <h2 class="trust-title">Почему мне<br>можно доверять?</h2>
+            </div>
+            <div class="trust-right reveal reveal-delay-2">
+                <p>Потому что я не «теоретик», а действующий аналитик. Каждый день я общаюсь с заказчиками, собираю требования, проектирую решения и вижу, как моя работа влияет на реальный бизнес. И именно этим опытом делюсь на своём менторстве.</p>
+                <p>А ещё я — жена, дочь, сестра, счастливая обладательница собаки Ульфа и убеждённый сторонник баланса между работой и жизнью. Путешествую, хожу в театры, инвестирую в своё здоровье и считаю, что настоящая свобода — это возможность выбирать.</p>
+                <div class="trust-badges">
+                    <div class="trust-badge"><span>🏆</span> Лучший сотрудник 2024</div>
+                    <div class="trust-badge"><span>💼</span> 5 лет в заказной разработке</div>
+                    <div class="trust-badge"><span>🎓</span> 20+ учеников в IT</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY BA -->
+    <section class="why-section">
+        <div class="why-inner">
+            <div style="text-align:center; margin-bottom: 56px;">
+                <!-- Удалён .section-tag (п.2) -->
+                <h2 class="section-title reveal reveal-delay-1">Почему <span class="accent">бизнес-анализ?</span></h2>
+            </div>
+            <div class="why-grid">
+                <div class="why-card reveal reveal-delay-1">
+                    <div class="why-icon">⚡</div>
+                    <div class="why-title">Быстрый вход</div>
+                    <div class="why-desc">Освоить профессию можно за 3–4 месяца — в отличие от разработки, где нужны годы.</div>
+                </div>
+                <div class="why-card reveal reveal-delay-2">
+                    <div class="why-icon">💬</div>
+                    <div class="why-title">Не нужен код</div>
+                    <div class="why-desc">Работа строится на анализе, коммуникации и логике — не на программировании.</div>
+                </div>
+                <div class="why-card reveal reveal-delay-3">
+                    <div class="why-icon">💰</div>
+                    <div class="why-title">Высокий доход</div>
+                    <div class="why-desc">Новички получают от 80–100 тыс., опытные специалисты — 250–400 тыс. и выше.</div>
+                </div>
+                <div class="why-card reveal reveal-delay-1">
+                    <div class="why-icon">📈</div>
+                    <div class="why-title">Рост без потолка</div>
+                    <div class="why-desc">Вертикально — до senior / team lead. Горизонтально — в системный анализ, продакты, управление.</div>
+                </div>
+                <div class="why-card reveal reveal-delay-2">
+                    <div class="why-icon">🛡️</div>
+                    <div class="why-title">Стабильность и бонусы</div>
+                    <div class="why-desc">IT — сфера с многомиллиардными оборотами: льготная ипотека, ДМС, удалёнка, корпоративные мероприятия.</div>
+                </div>
+                <div class="why-card reveal reveal-delay-3">
+                    <div class="why-icon">🌐</div>
+                    <div class="why-title">Универсальность навыков</div>
+                    <div class="why-desc">Умение анализировать, договариваться и видеть картину целиком пригодится в любой сфере.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAM -->
+    <section class="program-section" id="program">
+        <!-- Мета-блоки вынесены отдельно, над заголовком -->
+        <div class="program-meta-wrapper reveal reveal-delay-1">
+            <div class="program-meta-item">
+                <div class="program-meta-icon">📅</div>
+                <div>
+                    <div class="program-meta-label">Длительность</div>
+                    <div class="program-meta-value">3–3,5 месяца</div>
+                </div>
+            </div>
+            <div class="program-meta-item">
+                <div class="program-meta-icon">🎥</div>
+                <div>
+                    <div class="program-meta-label">Формат</div>
+                    <div class="program-meta-value">Видеоуроки + практика + созвоны</div>
+                </div>
+            </div>
+            <div class="program-meta-item">
+                <div class="program-meta-icon">🚀</div>
+                <div>
+                    <div class="program-meta-label">Старт ближайшего потока</div>
+                    <div class="program-meta-value">13 апреля 2026</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align:center; max-width: 680px; margin: 0 auto 56px;">
+            <!-- Удалён .section-tag (п.3) -->
+            <h2 class="section-title reveal reveal-delay-1">Программа <span class="accent">обучения</span></h2>
+            <p class="reveal reveal-delay-2" style="color:var(--gray); font-size:16px; line-height:1.75;">Только необходимые навыки — без воды и устаревшей теории. Все темы отрабатываются на практике, и к концу обучения у вас будет готовый кейс в портфолио.</p>
+        </div>
+
+        <div class="modules-grid">
+            <div class="module-card reveal reveal-delay-1">
+                <div class="module-num">01</div>
+                <div class="module-emoji">🚀</div>
+                <div class="module-title">Вводный</div>
+                <div class="module-desc">Знакомство с платформой, тайм-менеджмент, инструменты аналитика (Miro, FigmaJam), виды IT-компаний и аналитиков.</div>
+            </div>
+            <div class="module-card reveal reveal-delay-2">
+                <div class="module-num">02</div>
+                <div class="module-emoji">💡</div>
+                <div class="module-title">Введение в IT</div>
+                <div class="module-desc">Команда разработки, жизненный цикл продукта, методологии (Waterfall, Agile, Scrum, Kanban), стейкхолдеры, техники сбора требований.</div>
+            </div>
+            <div class="module-card reveal reveal-delay-3">
+                <div class="module-num">03</div>
+                <div class="module-emoji">📋</div>
+                <div class="module-title">Требования и инструменты</div>
+                <div class="module-desc">Виды требований, User Story, Use Case, критерии приёмки (DoD, DoR, AC), диаграммы, работа в специализированном ПО.</div>
+            </div>
+            <div class="module-card reveal reveal-delay-1">
+                <div class="module-num">04</div>
+                <div class="module-emoji">🔷</div>
+                <div class="module-title">Бизнес-процессы и артефакты</div>
+                <div class="module-desc">Визуализация, прототипирование, BPMN (базовый и продвинутый уровни), работа с Jira и Confluence, постановка задач, виды документов.</div>
+            </div>
+            <div class="module-card reveal reveal-delay-2">
+                <div class="module-num">05</div>
+                <div class="module-emoji">🗄️</div>
+                <div class="module-title">Реляционные БД и SQL</div>
+                <div class="module-desc">Основы баз данных, нормализация, ER-диаграммы, SQL (от простых запросов до JOIN, вложенных запросов и CTE), работа в DBeaver.</div>
+            </div>
+            <div class="module-card reveal reveal-delay-3">
+                <div class="module-num">06</div>
+                <div class="module-emoji">🤖</div>
+                <div class="module-title">Excel и нейросети</div>
+                <div class="module-desc">Excel от базы до профи. Нейросети: как использовать AI (ChatGPT, DeepSeek) для черновиков, анализа данных, протоколов встреч.</div>
+            </div>
+            <div class="module-card module-card-advanced reveal reveal-delay-1">
+                <div class="module-num">07</div>
+                <div class="module-emoji">⚙️</div>
+                <div class="module-title">Инструменты продвинутого аналитика</div>
+                <div class="module-desc">Оценка трудоёмкости, приоритизация (MoSCoW), анализ рисков, системный анализ (архитектура ПО, интеграции, UML, событийная архитектура).</div>
+                <!-- Удалён бейдж -->
+            </div>
+            <div class="module-card reveal reveal-delay-2">
+                <div class="module-num">08</div>
+                <div class="module-emoji">💼</div>
+                <div class="module-title">Подготовка к трудоустройству</div>
+                <div class="module-desc">Упаковка опыта, резюме, сопроводительные письма, закрытые каналы вакансий, тестовые собеседования, самопрезентация.</div>
+            </div>
+        </div>
+
+        <div class="program-results reveal">
+            <div class="program-results-title">Что вы получите в итоге?</div>
+            <div class="program-results-grid program-results-grid--single">
+                <!-- Изменён класс для одной колонки (п.4) -->
+                <div class="program-result-item">
+                    <div class="program-result-icon">📁</div>
+                    <div>Полноценный проект в портфолио — анализ и проектирование реального IT-продукта</div>
+                </div>
+                <div class="program-result-item">
+                    <div class="program-result-icon">🎯</div>
+                    <div>Навыки, которые ждут работодатели — ничего лишнего</div>
+                </div>
+                <div class="program-result-item">
+                    <div class="program-result-icon">💬</div>
+                    <div>Поддержку меня как действующего эксперта 24/7</div>
+                </div>
+                <div class="program-result-item">
+                    <div class="program-result-icon">🔑</div>
+                    <div>Доступ к закрытым каналам с вакансиями — не только hh.ru</div>
+                </div>
+            </div>
+            <div class="program-why-short">
+                <span>Почему 3,5 месяца, а не 6–8?</span> Потому что я не растягиваю программу ради объёма. Только то, что реально нужно для старта. Никакой воды — только практика.
+            </div>
+        </div>
+    </section>
+
+    <!-- CASES -->
+    <section class="cases-section" id="cases">
+        <div style="text-align:center; max-width: 600px; margin: 0 auto 56px;">
+            <!-- Удалён .section-tag (п.5) -->
+            <h2 class="section-title reveal reveal-delay-1">Реальные <span class="accent">истории</span></h2>
+            <p class="reveal reveal-delay-2" style="color:var(--gray); font-size:16px; line-height:1.75;">Реальные истории тех, кто прошёл мой путь и изменил свою жизнь.</p>
+        </div>
+        <div class="cases-grid">
+            <div class="case-card reveal reveal-delay-1">
+                <div class="case-photo-wrap">
+                    <img src="img/photo_nik.jpg" alt="Никита" class="case-photo">
+                </div>
+                <div class="case-body">
+                    <div class="case-result">🚀 Будущий бизнес-аналитик</div>
+                    <div class="case-name">Никита</div>
+                    <div class="case-prev">Оператор пульта управления в «Лукойле» → бизнес-анализ</div>
+                    <p class="case-text">Думал, что IT — это только про код, пытался учиться на разработчика. Понял, что не его. За 3 месяца обучения создал кейс — улучшение функционала фитнес-приложения. Уже в процессе начал применять навыки на работе: помог заказчику сформулировать требования к чат-боту, избежав бесконечных переделок.</p>
+                    <div class="case-quote">«Не нужно уметь программировать, чтобы войти в IT»</div>
+                </div>
+            </div>
+            <div class="case-card reveal reveal-delay-2">
+                <div class="case-photo-wrap">
+                    <img src="img/photo_dash.png" alt="Даша" class="case-photo">
+                </div>
+                <div class="case-body">
+                    <div class="case-result">✅ Оффер 100 000₽</div>
+                    <div class="case-name">Даша</div>
+                    <div class="case-prev">Нефтяной факультет → бизнес-аналитик</div>
+                    <p class="case-text">4 года поисков себя и неуверенности. Пришла без опыта и портфолио. За 3,5 месяца разработала кейс — приложение для похудения. Больше всего боялась собеседований, но благодаря поддержке справилась. Через месяц поиска — оффер на позицию бизнес-аналитика с зарплатой <strong>100 000₽</strong>.</p>
+                    <div class="case-quote">«Поддержка и правильная стратегия побеждают страхи»</div>
+                </div>
+            </div>
+            <div class="case-card reveal reveal-delay-1">
+                <div class="case-photo-wrap">
+                    <img src="img/photo_vlad.png" alt="Влад" class="case-photo">
+                </div>
+                <div class="case-body">
+                    <div class="case-result">✅ Оффер 115 000₽ за 4 недели</div>
+                    <div class="case-name">Влад</div>
+                    <div class="case-prev">Продажи и недвижимость → IT</div>
+                    <p class="case-text">Устал от нестабильности и скачущего дохода. Навыки из продаж — переговоры, анализ потребностей — стали его преимуществом. Создал кейс — приложение для оценки психоэмоционального состояния. Грамотно упаковал прошлый опыт. Результат: <strong>оффер 115 000₽</strong> через 4 недели поиска.</p>
+                    <div class="case-quote">«Навыки из "неайтишных" сфер становятся преимуществом»</div>
+                </div>
+            </div>
+            <div class="case-card case-card-highlight reveal reveal-delay-2">
+                <div class="case-photo-wrap">
+                    <img src="img/photo_yan.png" alt="Ян" class="case-photo">
+                </div>
+                <div class="case-body">
+                    <div class="case-result">🏆 Грант 1 000 000₽ на стартап</div>
+                    <div class="case-name">Ян</div>
+                    <div class="case-prev">Студент магистратуры → основатель стартапа</div>
+                    <p class="case-text">Хотел в IT, но не знал с какой стороны подойти. Научился проектировать пользовательские пути, собирать требования, создавать макеты. После курса вместо поиска работы подал заявку на госгрант — и <strong class="highlight-strong">выиграл 1 000 000₽</strong> на создание IT-продукта для защиты от дронов!</p>
+                    <div class="case-quote">«Правильные знания и смелость открывают неожиданные двери»</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TARIFFS -->
+    <section class="tariffs-section" id="tariffs">
+        <div style="text-align:center; max-width: 600px; margin: 0 auto 56px;">
+            <!-- Удалён .section-tag (п.7) -->
+            <h2 class="section-title reveal reveal-delay-1">Выберите <span class="accent">тариф</span></h2>
+            <p class="reveal reveal-delay-2" style="color:var(--gray); font-size:16px; line-height:1.75;">Оба тарифа дают доступ к программе — разница в глубине сопровождения</p>
+        </div>
+        <div class="tariffs-grid">
+            <!-- Базовый тариф -->
+            <div class="tariff-card reveal reveal-delay-1">
+                <div class="tariff-header">
+                    <div class="tariff-name">Базовый</div>
+                    <div class="tariff-sub">Самостоятельный старт с поддержкой</div>
+                </div>
+                <div class="tariff-body">
+                    <ul class="tariff-features">
+                        <li><span class="tf-check">✓</span> Модуль 1. Вводный</li>
+                        <li><span class="tf-check">✓</span> Модуль 2. Введение в IT</li>
+                        <li><span class="tf-check">✓</span> Модуль 3. Требования и инструменты</li>
+                        <li><span class="tf-check">✓</span> Модуль 4. Бизнес-процессы и артефакты</li>
+                        <li><span class="tf-check">✓</span> Модуль 5. Реляционные БД и SQL</li>
+                        <li><span class="tf-check">✓</span> Модуль 6. Excel и нейросети</li>
+                        <!-- Теперь 7 модуль зачёркнут, с крестиком и пометкой -->
+                        <li class="tf-excluded"><span class="tf-x">✕</span> Модуль 7. Инструменты продвинутого аналитика</li>
+                        <li><span class="tf-check">✓</span> Модуль 8. Подготовка к трудоустройству</li>
+                    </ul>
+                    <div class="tariff-cta">
+                        <div class="gc-widget-wrap" id="gc-wrap-basic">
+                            <script id="097611979744a4a477687ae74a39f0a7018f6950" src="https://itwithjuliiia.getcourse.ru/pl/lite/widget/script?id=1573697"></script>
+                        </div>
+                        <button class="btn-pay" onclick="triggerGC('gc-wrap-basic')">Оплатить</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Расширенный тариф -->
+            <div class="tariff-card tariff-card-popular reveal reveal-delay-2">
+                <div class="tariff-popular-badge">Популярный</div>
+                <div class="tariff-header">
+                    <div class="tariff-name">Расширенный</div>
+                    <div class="tariff-sub">Максимальное сопровождение ментора</div>
+                </div>
+                <div class="tariff-body">
+                    <ul class="tariff-features">
+                        <li><span class="tf-check">✓</span> Модуль 1. Вводный</li>
+                        <li><span class="tf-check">✓</span> Модуль 2. Введение в IT</li>
+                        <li><span class="tf-check">✓</span> Модуль 3. Требования и инструменты</li>
+                        <li><span class="tf-check">✓</span> Модуль 4. Бизнес-процессы и артефакты</li>
+                        <li><span class="tf-check">✓</span> Модуль 5. Реляционные БД и SQL</li>
+                        <li><span class="tf-check">✓</span> Модуль 6. Excel и нейросети</li>
+                        <!-- 7 модуль включён, без зачёркивания и пометки -->
+                        <li><span class="tf-check">✓</span> Модуль 7. Инструменты продвинутого аналитика</li>
+                        <li><span class="tf-check">✓</span> Модуль 8. Подготовка к трудоустройству</li>
+                    </ul>
+                    <div class="tariff-cta">
+                        <div class="gc-widget-wrap" id="gc-wrap-ext">
+                            <script id="2ce688383d9bb2ff9e6d79057dee53edea294fe4" src="https://itwithjuliiia.getcourse.ru/pl/lite/widget/script?id=1573698"></script>
+                        </div>
+                        <button class="btn-pay btn-pay-popular" onclick="triggerGC('gc-wrap-ext')">Оплатить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section" id="faq">
+        <div style="text-align:center; max-width: 600px; margin: 0 auto 56px;">
+            <!-- Удалён .section-tag (п.9) -->
+            <h2 class="section-title reveal reveal-delay-1">Часто задаваемые <span class="accent">вопросы</span></h2>
+        </div>
+        <div class="faq-list reveal">
+            <div class="faq-item">
+                <div class="faq-question">
+                    Нужно ли высшее образование?
+                    <span class="faq-arrow">↓</span>
+                </div>
+                <div class="faq-answer">
+                    <p>В IT важнее ваши навыки и портфолио. Высшее образование — приятный бонус, но не обязательное условие. Около 40% специалистов пришли из других сфер. Главное — желание и готовность учиться.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Какой возраст подходит для старта?
+                    <span class="faq-arrow">↓</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Я работала с учениками от 20 до 45+. Возраст не главное — важнее мотивация и готовность погружаться. При правильном подходе любые сложности преодолимы.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    А вдруг я не справлюсь?
+                    <span class="faq-arrow">↓</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Страх — это нормально. Все мои ученики проходили через это. Именно поэтому я всегда на связи, поддерживаю, объясняю сложное простыми словами и не даю опускать руки. В программе есть и психологическая поддержка, и отработка самопрезентации.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Чем ваше менторство отличается от массовых курсов?
+                    <span class="faq-arrow">↓</span>
+                </div>
+                <div class="faq-answer">
+                    <ul>
+                        <li>Длительность 3–3,5 месяца (вместо 6–12) — только нужное, без воды.</li>
+                        <li>Я лично проверяю задания и даю обратную связь.</li>
+                        <li>У каждого студента — реальный проект в портфолио.</li>
+                        <li>Отдельный модуль по трудоустройству: резюме, собеседования, тестовые задания.</li>
+                        <li>Доступ к закрытым каналам с вакансиями.</li>
+                        <li>Я сама действующий аналитик, а не «эксперт», который давно не работает в IT.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Что, если я не смогу совмещать обучение с работой?
+                    <span class="faq-arrow">↓</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Программа построена так, что вы можете учиться в удобном темпе. Все уроки записаны, созвоны проходят в вечернее время. Многие мои ученики совмещали обучение с полной занятостью и успешно дошли до конца.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+        <div class="contact-inner">
+            <div class="contact-left reveal">
+                <h2 class="contact-heading">Остались вопросы?</h2>
+                <p class="contact-desc">Я отвечу на все вопросы и помогу определиться, подходит ли вам профессия бизнес-аналитика.</p>
+                <a href="https://t.me/Julia_proIT" class="btn-contact" target="_blank">Написать мне</a>
+            </div>
+            <div class="contact-right reveal reveal-delay-2">
+                <div class="contact-photo-wrap">
+                    <img src="img/photo.png" alt="Юлия" class="contact-photo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <a class="footer-logo" href="#">IT <span>с Юлей</span></a>
+        <div class="footer-copy">© 2026 Юлия Овчинникова. Все права защищены.</div>
+        <div class="footer-right">
+            <div class="footer-links">
+                <a href="https://t.me/Julia_proIT" target="_blank">Telegram</a>
+                <a href="https://www.instagram.com/ovchinnikova.juliaa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">Instagram<sup>*</sup></a>
+                <a href="https://www.youtube.com/@IT_Vhod" target="_blank">YouTube</a>
+            </div>
+            <div class="footer-disclaimer">* Meta является запрещённой на территории РФ организацией</div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
