@@ -357,7 +357,7 @@ nav.scrolled { padding: 14px 60px; }
 .module-title { font-family: 'Unbounded', sans-serif; font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 10px; line-height: 1.3; }
 .module-desc { font-size: 12px; color: var(--gray); line-height: 1.7; }
 
-/* Список результатов — одна колонка (п.4) */
+/* Список результатов — одна колонка */
 .program-results-grid--single {
     grid-template-columns: 1fr !important;
 }
@@ -368,8 +368,21 @@ nav.scrolled { padding: 14px 60px; }
 }
 .program-results-title { font-family: 'Unbounded', sans-serif; font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 28px; }
 .program-results-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 32px; }
-.program-result-item { display: flex; align-items: center; gap: 14px; font-size: 15px; color: var(--gray); line-height: 1.6; }
-.program-result-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+
+/* Исправление вертикального выравнивания */
+.program-result-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 15px;
+    color: var(--gray);
+    line-height: 1.6;
+}
+.program-result-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
 .program-why-short {
     background: var(--blue-pale); border-radius: 14px; padding: 20px 24px;
     font-size: 15px; color: var(--gray); line-height: 1.7; border-left: 3px solid var(--blue-mid);
@@ -395,8 +408,6 @@ nav.scrolled { padding: 14px 60px; }
 .case-card-highlight .case-text { color: rgba(255,255,255,0.82); }
 .case-card-highlight .case-quote { border-color: rgba(255,255,255,0.25); color: rgba(255,255,255,0.9); }
 .case-card-highlight .case-result { background: rgba(255,255,255,0.15); color: white; border-color: rgba(255,255,255,0.2); }
-/* Выделение суммы жирным белым (п.6) */
-.case-card-highlight .case-text strong.highlight-strong,
 .case-card-highlight .case-text strong { color: white; }
 .case-photo-wrap { overflow: hidden; }
 .case-photo { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
@@ -441,16 +452,8 @@ nav.scrolled { padding: 14px 60px; }
 .tf-check { color: var(--blue-mid); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
 .tf-excluded { opacity: 0.4; text-decoration: line-through; }
 .tf-x { color: #aaa; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-.tf-excluded-note {
-    text-decoration: none; margin-left: 4px;
-    background: rgba(0,0,0,0.06); padding: 2px 8px; border-radius: 50px;
-    font-size: 11px; font-weight: 600; opacity: 1;
-}
 
-/* GetCourse hidden wrapper */
-.gc-widget-wrap {
-    position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden;
-}
+/* GetCourse widget script placement */
 .tariff-cta { position: relative; }
 
 /* Pay button */
@@ -534,7 +537,7 @@ footer {
 .footer-logo span { color: var(--accent2); }
 .footer-copy { font-size: 13px; color: rgba(255,255,255,0.4); }
 .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
-.footer-links { display: flex; gap: 24px; flex-wrap: nowrap; } /* гарантируем строку */
+.footer-links { display: flex; gap: 24px; flex-wrap: nowrap; }
 .footer-links a { 
     font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s; font-weight: 500; 
     white-space: nowrap; display: inline-flex; align-items: center;
@@ -629,7 +632,7 @@ footer {
     .program-meta-item { width: 100%; }
     .modules-grid { grid-template-columns: 1fr; gap: 16px; }
     .program-results { padding: 24px; }
-    .program-results-grid { grid-template-columns: 1fr; } /* на мобильных и так одна колонка */
+    .program-results-grid { grid-template-columns: 1fr; }
 
     /* Cases */
     .cases-section { padding: 60px 20px; }
@@ -681,4 +684,112 @@ footer {
     .program-results-title { font-size: 16px; }
     .faq-question { font-size: 12px; }
     .btn-contact { padding: 16px 36px; font-size: 15px; }
+}
+
+
+
+/* ===================== MODAL WINDOW ===================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-container {
+    position: relative;
+    background: white;
+    border-radius: 24px;
+    max-width: 450px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--gray);
+    transition: color 0.3s;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: var(--blue-deep);
+}
+
+/* Стили для форм внутри модального окна */
+.modal .lt-form input[type="text"],
+.modal .lt-form input[type="email"] {
+    width: 100%;
+    padding: 14px 18px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(45,140,232,0.2);
+    border-radius: 12px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    transition: border-color 0.3s;
+}
+
+.modal .lt-form input:focus {
+    outline: none;
+    border-color: var(--blue-mid);
+}
+
+.modal .lt-form button[type="submit"] {
+    width: 100%;
+    padding: 16px;
+    border-radius: 50px;
+    border: none;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-top: 10px;
+}
+
+.modal .lt-form button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(26,107,189,0.3);
+}
+
+/* Скрываем радио-кнопки и лишние элементы */
+.modal .lt-form input[type="radio"],
+.modal .lt-form input[type="hidden"] {
+    display: none;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 480px) {
+    .modal-container {
+        padding: 20px;
+    }
 }
