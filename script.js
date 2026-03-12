@@ -94,21 +94,59 @@ document.querySelectorAll('.faq-question').forEach(q => {
     });
 });
 
-// GetCourse widget trigger (улучшенная версия с ожиданием)
-function triggerGC(wrapperId) {
-    const wrap = document.getElementById(wrapperId);
-    if (!wrap) return;
+// ===================== MODAL WINDOW FOR TARIFFS =====================
+const modal = document.getElementById('paymentModal');
+const modalContent = document.getElementById('modalContent');
+const modalClose = document.querySelector('.modal-close');
+const modalOverlay = document.querySelector('.modal-overlay');
 
-    function tryClick() {
-        // Ищем любой кликабельный элемент внутри обертки
-        const clickable = wrap.querySelector('a, button, input[type="submit"], [onclick]');
-        if (clickable) {
-            clickable.click();
-        } else {
-            // Если элемент ещё не появился, пробуем снова через 200 мс
-            setTimeout(tryClick, 200);
-        }
-    }
-
-    tryClick();
+// Закрытие модального окна
+function closeModal() {
+    modal.classList.remove('show');
 }
+
+modalClose.addEventListener('click', closeModal);
+modalOverlay.addEventListener('click', closeModal);
+
+// Закрытие по клавише Esc
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('show')) {
+        closeModal();
+    }
+});
+
+// Обработчики на кнопки "Оплатить"
+document.querySelectorAll('.btn-pay[data-form]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const formType = btn.dataset.form; // 'basic' или 'extended'
+        const sourceId = formType === 'basic' ? 'tariff-form-basic' : 'tariff-form-extended';
+        const sourceDiv = document.getElementById(sourceId);
+
+        if (!sourceDiv) return;
+
+        // Клонируем форму без скриптов (скрипты не выполняются через innerHTML)
+        const clone = sourceDiv.cloneNode(true);
+
+        // Удаляем теги <script> из клона — они не нужны и всё равно не выполнятся
+        clone.querySelectorAll('script').forEach(s => s.remove());
+
+        // Вставляем клон в модальное окно
+        modalContent.innerHTML = '';
+        modalContent.appendChild(clone);
+
+        // Устанавливаем значения, которые скрипты GetCourse задают через window.load
+        modalContent.querySelectorAll('.__gc__internal__form__helper').forEach(input => {
+            input.value = window.location.href;
+        });
+        modalContent.querySelectorAll('.__gc__internal__form__helper_ref').forEach(input => {
+            input.value = document.referrer;
+        });
+
+        modal.classList.add('show');
+
+        // Фокус на первое поле формы
+        const firstInput = modalContent.querySelector('input[type="text"]');
+        if (firstInput) setTimeout(() => firstInput.focus(), 100);
+    });
+});
