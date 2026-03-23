@@ -672,6 +672,7 @@ footer {
     .trust-title { font-size: clamp(22px, 6vw, 32px); }
     .trust-badges { gap: 8px; }
     .trust-badge { font-size: 12px; padding: 6px 12px; }
+    .trust-photo-wrap { display: none !important; }
 
     /* Why BA */
     .why-section { padding: 60px 20px; }
@@ -1085,6 +1086,39 @@ footer {
 }
 .btn-apply-popular:hover { box-shadow: 0 14px 36px rgba(10,61,112,0.5); }
 
+/* ===================== TRUST PHOTO ===================== */
+.trust-photo-wrap {
+    margin-top: 36px;
+    position: relative;
+    display: inline-block;
+}
+.trust-photo-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 22px;
+    z-index: 0;
+}
+.trust-photo-wrap::after {
+    content: '';
+    position: absolute;
+    inset: -16px;
+    border-radius: 32px;
+    background: radial-gradient(ellipse at center, rgba(37,128,213,0.35) 0%, transparent 70%);
+    z-index: -1;
+    filter: blur(12px);
+}
+.trust-photo {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 340px;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35), 0 4px 16px rgba(0,0,0,0.2);
+}
+
 /* ===================== UPDATED TRUST LIST ===================== */
 .trust-list { list-style: none; padding: 0; margin-bottom: 0; }
 .trust-list li {
@@ -1180,4 +1214,68 @@ footer {
 /* Скрыл плашку "IT с Юлей" */
 .hero-subtitle-block {
     visibility: hidden !important;
+}
+
+/* ===================== LARGE SCREENS (1400px+) ===================== */
+@media (min-width: 1400px) {
+    nav { padding: 20px 8%; }
+    nav.scrolled { padding: 14px 8%; }
+
+    .hero { padding: 130px 8% 90px; }
+
+    .trust-section { padding: 90px 8%; }
+    .why-section,
+    .program-section,
+    .ifyou-section,
+    .bonus-section,
+    .results-section,
+    .cases-section,
+    .tariffs-section,
+    .faq-section { padding: 120px 8%; }
+    .contact-section { padding: 120px 8%; }
+    .stats-bar { padding: 48px 8%; }
+
+    .trust-inner,
+    .why-inner,
+    .ifyou-inner,
+    .bonus-inner,
+    .results-inner,
+    .contact-inner { max-width: 1360px; }
+
+    .cases-grid { max-width: 1360px; margin: 0 auto; }
+    .program-scroll-wrap { max-width: 1200px; }
+    .faq-list { max-width: 1000px; }
+    .tariffs-grid { max-width: 1100px; }
+}
+
+/* ===================== EXTRA LARGE SCREENS (1800px+) ===================== */
+@media (min-width: 1800px) {
+    nav { padding: 22px 10%; }
+    nav.scrolled { padding: 16px 10%; }
+
+    .hero { padding: 140px 10% 100px; }
+
+    .trust-section { padding: 100px 10%; }
+    .why-section,
+    .program-section,
+    .ifyou-section,
+    .bonus-section,
+    .results-section,
+    .cases-section,
+    .tariffs-section,
+    .faq-section { padding: 140px 10%; }
+    .contact-section { padding: 140px 10%; }
+    .stats-bar { padding: 56px 10%; }
+
+    .trust-inner,
+    .why-inner,
+    .ifyou-inner,
+    .bonus-inner,
+    .results-inner,
+    .contact-inner { max-width: 1560px; }
+
+    .cases-grid { max-width: 1560px; }
+    .program-scroll-wrap { max-width: 1400px; }
+    .faq-list { max-width: 1200px; }
+    .tariffs-grid { max-width: 1300px; }
 }
