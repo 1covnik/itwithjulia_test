@@ -77,9 +77,10 @@ nav.scrolled { padding: 14px 60px; }
 .nav-burger {
     display: none; flex-direction: column; justify-content: center; gap: 5px;
     width: 36px; height: 36px; cursor: pointer; background: none; border: none; padding: 4px;
+    flex-shrink: 0;
 }
 .nav-burger span {
-    display: block; height: 2px; background: var(--dark); border-radius: 2px;
+    display: block; width: 22px; height: 2px; background: var(--dark); border-radius: 2px;
     transition: all 0.3s;
 }
 .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -652,7 +653,7 @@ footer {
         border-radius: 50px !important; text-align: center !important;
         width: auto !important;
     }
-    .nav-burger { display: flex; position: relative; z-index: 101; }
+    .nav-burger { display: flex !important; position: relative; z-index: 101; }
 
     /* Hero single col */
     .hero { grid-template-columns: 1fr; padding: 100px 20px 60px; text-align: center; }
