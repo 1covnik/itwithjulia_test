@@ -48,18 +48,26 @@ if (burger) {
             navLinks.classList.remove('open');
         });
     });
+    document.addEventListener('click', (e) => {
+        if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !burger.contains(e.target)) {
+            burger.classList.remove('open');
+            navLinks.classList.remove('open');
+        }
+    });
 }
 
-// Scroll reveal
-const observer = new IntersectionObserver((entries) => {
+// Scroll reveal — all animation variants
+const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => {
         if (e.isIntersecting) {
             e.target.classList.add('visible');
-            observer.unobserve(e.target);
+            revealObserver.unobserve(e.target);
         }
     });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')
+    .forEach(el => revealObserver.observe(el));
 
 // Counter animation
 function animateCounter(el, target) {
@@ -94,25 +102,53 @@ document.querySelectorAll('.faq-question').forEach(q => {
     });
 });
 
+// ===================== DRAG TO SCROLL (program, bonus, results, ifyou) =====================
+function makeDraggable(el) {
+    if (!el) return;
+    let isDown = false, startX = 0, scrollLeft = 0;
+    el.addEventListener('mousedown', e => {
+        isDown = true;
+        startX = e.pageX - el.offsetLeft;
+        scrollLeft = el.scrollLeft;
+    });
+    el.addEventListener('mouseleave', () => { isDown = false; });
+    el.addEventListener('mouseup', () => { isDown = false; });
+    el.addEventListener('mousemove', e => {
+        if (!isDown) return;
+        e.preventDefault();
+        el.scrollLeft = scrollLeft - (e.pageX - el.offsetLeft - startX);
+    });
+}
+
+makeDraggable(document.getElementById('programScrollTrack'));
+makeDraggable(document.querySelector('.ifyou-grid'));
+makeDraggable(document.querySelector('.bonus-grid'));
+makeDraggable(document.querySelector('.results-grid'));
+
 // ===================== MODAL WINDOW FOR TARIFFS =====================
 const modal = document.getElementById('paymentModal');
 const modalContent = document.getElementById('modalContent');
-const modalClose = document.querySelector('.modal-close');
+const modalClose = document.getElementById('modalClose');
 const modalOverlay = document.querySelector('.modal-overlay');
+
+// URL виджет-скриптов GetCourse
+const gcWidgetUrls = {
+    basic:    'https://itwithjuliiia.getcourse.ru/pl/lite/widget/script?id=1573697',
+    extended: 'https://itwithjuliiia.getcourse.ru/pl/lite/widget/script?id=1573697'
+};
 
 // Закрытие модального окна
 function closeModal() {
     modal.classList.remove('show');
+    // Удаляем загруженный скрипт и контент, чтобы при следующем открытии виджет перезагрузился
+    modalContent.innerHTML = '';
 }
 
 modalClose.addEventListener('click', closeModal);
 modalOverlay.addEventListener('click', closeModal);
 
-// Закрытие по клавише Esc
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('show')) {
-        closeModal();
-    }
+    if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
 });
 
 // Обработчики на кнопки "Оплатить"
@@ -120,33 +156,25 @@ document.querySelectorAll('.btn-pay[data-form]').forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
         const formType = btn.dataset.form; // 'basic' или 'extended'
-        const sourceId = formType === 'basic' ? 'tariff-form-basic' : 'tariff-form-extended';
-        const sourceDiv = document.getElementById(sourceId);
+        const widgetUrl = gcWidgetUrls[formType];
+        if (!widgetUrl) return;
 
-        if (!sourceDiv) return;
-
-        // Клонируем форму без скриптов (скрипты не выполняются через innerHTML)
-        const clone = sourceDiv.cloneNode(true);
-
-        // Удаляем теги <script> из клона — они не нужны и всё равно не выполнятся
-        clone.querySelectorAll('script').forEach(s => s.remove());
-
-        // Вставляем клон в модальное окно
-        modalContent.innerHTML = '';
-        modalContent.appendChild(clone);
-
-        // Устанавливаем значения, которые скрипты GetCourse задают через window.load
-        modalContent.querySelectorAll('.__gc__internal__form__helper').forEach(input => {
-            input.value = window.location.href;
-        });
-        modalContent.querySelectorAll('.__gc__internal__form__helper_ref').forEach(input => {
-            input.value = document.referrer;
-        });
-
+        // Показываем модал с индикатором загрузки
+        modalContent.innerHTML = '<div class="modal-loading">Загрузка формы...</div>';
         modal.classList.add('show');
 
-        // Фокус на первое поле формы
-        const firstInput = modalContent.querySelector('input[type="text"]');
-        if (firstInput) setTimeout(() => firstInput.focus(), 100);
+        // Динамически создаём и вставляем скрипт GetCourse в контейнер
+        // document.createElement + appendChild — единственный способ выполнить скрипт
+        const script = document.createElement('script');
+        script.src = widgetUrl;
+        script.onload = () => {
+            // Убираем лоадер после загрузки скрипта
+            const loader = modalContent.querySelector('.modal-loading');
+            if (loader) loader.remove();
+        };
+        script.onerror = () => {
+            modalContent.innerHTML = '<p style="color:red;text-align:center;">Не удалось загрузить форму. Попробуйте позже.</p>';
+        };
+        modalContent.appendChild(script);
     });
 });
