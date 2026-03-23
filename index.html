@@ -206,11 +206,15 @@
 
         <!-- Горизонтальный скролл программы -->
         <div class="program-scroll-wrap reveal">
-            <div class="program-scroll-track" id="programScrollTrack">
-                <img class="program-scroll-img" src="img/Программа 1.png" alt="Программа обучения — часть 1">
-                <img class="program-scroll-img" src="img/Программа 2.png" alt="Программа обучения — часть 2">
-                <img class="program-scroll-img" src="img/Программа 3.png" alt="Программа обучения — часть 3">
-                <img class="program-scroll-img" src="img/Программа 4.png" alt="Программа обучения — часть 4">
+            <div class="program-carousel-row">
+                <button class="program-arrow program-arrow-prev" id="programPrev" aria-label="Предыдущий слайд">&#8592;</button>
+                <div class="program-scroll-track" id="programScrollTrack">
+                    <img class="program-scroll-img" src="img/Программа 1.png" alt="Программа обучения — часть 1">
+                    <img class="program-scroll-img" src="img/Программа 2.png" alt="Программа обучения — часть 2">
+                    <img class="program-scroll-img" src="img/Программа 3.png" alt="Программа обучения — часть 3">
+                    <img class="program-scroll-img" src="img/Программа 4.png" alt="Программа обучения — часть 4">
+                </div>
+                <button class="program-arrow program-arrow-next" id="programNext" aria-label="Следующий слайд">&#8594;</button>
             </div>
             <div class="program-scroll-hint">← прокрутите, чтобы увидеть всё →</div>
         </div>
