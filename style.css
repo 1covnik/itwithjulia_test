@@ -895,26 +895,29 @@ footer {
 
 /* ===================== PROGRAM HORIZONTAL SCROLL ===================== */
 .program-scroll-wrap {
-    position: relative;
     max-width: 1000px;
     margin: 0 auto;
-    /* показываем первую картинку целиком, остальные обрезаются */
-    overflow: hidden;
+}
+.program-carousel-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 .program-scroll-track {
+    flex: 1;
+    min-width: 0;
     display: flex;
     gap: 20px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
     padding-bottom: 8px;
     cursor: grab;
 }
 .program-scroll-track:active { cursor: grabbing; }
 .program-scroll-track::-webkit-scrollbar { display: none; }
 .program-scroll-img {
-    /* Каждая картинка занимает ширину контейнера */
     flex-shrink: 0;
     width: 100%;
     border-radius: 20px;
@@ -925,6 +928,33 @@ footer {
     user-select: none;
     -webkit-user-drag: none;
 }
+.program-arrow {
+    flex-shrink: 0;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    color: var(--blue-deep);
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(26,107,189,0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.program-arrow:hover {
+    background: var(--blue-mid);
+    color: white;
+    box-shadow: 0 6px 28px rgba(26,107,189,0.28);
+    transform: scale(1.08);
+}
+
+@media (max-width: 768px) {
+    .program-arrow { display: none !important; }
+}
+
 .program-scroll-hint {
     text-align: center; margin-top: 20px;
     font-size: 13px; color: var(--gray); letter-spacing: 0.5px;
