@@ -13,7 +13,7 @@
     --accent2: #5bc8fa;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
     font-family: 'Raleway', sans-serif;
     background: var(--blue-bg);
@@ -691,12 +691,13 @@ footer {
     .ifyou-main-title { font-size: clamp(24px, 6vw, 36px) !important; margin-bottom: 14px !important; }
     .ifyou-arrow { font-size: 26px !important; margin-bottom: 24px !important; }
     .ifyou-grid {
-        display: flex !important; overflow-x: auto !important;
+        display: flex !important; overflow-x: auto !important; overflow-y: hidden !important;
         scroll-snap-type: x mandatory !important;
         -webkit-overflow-scrolling: touch !important;
         scrollbar-width: none !important;
         gap: 14px !important; padding-right: 20px !important; padding-bottom: 4px !important;
         grid-template-columns: unset !important;
+        touch-action: pan-x !important;
     }
     .ifyou-grid::-webkit-scrollbar { display: none !important; }
     .ifyou-card {
@@ -718,12 +719,13 @@ footer {
     /* Bonus */
     .bonus-section { padding: 60px 0 60px 20px !important; overflow: hidden !important; }
     .bonus-grid {
-        display: flex !important; overflow-x: auto !important;
+        display: flex !important; overflow-x: auto !important; overflow-y: hidden !important;
         scroll-snap-type: x mandatory !important;
         -webkit-overflow-scrolling: touch !important;
         scrollbar-width: none !important;
         gap: 14px !important; padding-right: 20px !important; padding-bottom: 4px !important;
         grid-template-columns: unset !important;
+        touch-action: pan-x !important;
     }
     .bonus-grid::-webkit-scrollbar { display: none !important; }
     .bonus-card {
@@ -739,12 +741,13 @@ footer {
     .results-section { padding: 60px 0 60px 20px !important; overflow: hidden !important; }
     .results-inner { max-width: 100% !important; }
     .results-grid {
-        display: flex !important; overflow-x: auto !important;
+        display: flex !important; overflow-x: auto !important; overflow-y: hidden !important;
         scroll-snap-type: x mandatory !important;
         -webkit-overflow-scrolling: touch !important;
         scrollbar-width: none !important;
         gap: 14px !important; padding-right: 20px !important; padding-bottom: 4px !important;
         grid-template-columns: unset !important;
+        touch-action: pan-x !important;
     }
     .results-grid::-webkit-scrollbar { display: none !important; }
     .result-card {
@@ -1209,11 +1212,17 @@ footer {
     }
 }
 
-/* Картинки с программой обучения чуток побольше для мобильной версии */
+/* Картинки с программой обучения на мобильной версии */
 @media (max-width: 680px) {
-.program-scroll-img {
-    width: 200%;
- }
+    .program-scroll-track {
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+    }
+    .program-scroll-img {
+        flex-shrink: 0 !important;
+        width: 150vw !important;
+        max-width: none !important;
+    }
 }
 
 /* Скрыл плашку "IT с Юлей" */
