@@ -120,7 +120,20 @@ function makeDraggable(el) {
     });
 }
 
-makeDraggable(document.getElementById('programScrollTrack'));
+const programTrack = document.getElementById('programScrollTrack');
+makeDraggable(programTrack);
+
+// Program carousel arrows
+const programPrev = document.getElementById('programPrev');
+const programNext = document.getElementById('programNext');
+if (programPrev && programNext && programTrack) {
+    function scrollToSlide(direction) {
+        const slideWidth = programTrack.clientWidth + 20; // ширина + gap
+        programTrack.scrollBy({ left: direction * slideWidth, behavior: 'smooth' });
+    }
+    programPrev.addEventListener('click', () => scrollToSlide(-1));
+    programNext.addEventListener('click', () => scrollToSlide(1));
+}
 makeDraggable(document.querySelector('.ifyou-grid'));
 makeDraggable(document.querySelector('.bonus-grid'));
 makeDraggable(document.querySelector('.results-grid'));
