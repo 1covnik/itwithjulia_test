@@ -179,6 +179,11 @@ nav.scrolled { padding: 14px 60px; }
 .btn-secondary:hover { background: var(--blue-pale); border-color: var(--blue-mid); transform: translateY(-3px); }
 @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
+/* MOBILE PHOTO (скрыт на десктопе, показывается на мобиле между заголовком и описанием) */
+.hero-mobile-photo {
+    display: none;
+}
+
 /* PHOTO */
 .hero-right { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; }
 .photo-frame { position: relative; width: 420px; height: 520px; opacity: 0; animation: fadeIn 1s 0.4s forwards; }
@@ -658,6 +663,35 @@ footer {
     /* Hero single col */
     .hero { grid-template-columns: 1fr; padding: 100px 20px 60px; text-align: center; }
     .hero-right { display: none; }
+
+    /* Спейсер скрыт на мобиле — отступ не нужен */
+    .hero-title-spacer { display: none; }
+
+    /* Mobile photo block */
+    .hero-mobile-photo {
+        display: block;
+        position: relative;
+        width: 80vw;
+        max-width: 320px;
+        margin: 24px auto 32px;
+    }
+    .hero-mobile-photo-card {
+        width: 100%;
+        height: 400px;
+        border-radius: 24px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 20px 60px rgba(26,107,189,0.3), 0 0 0 2px rgba(45,140,232,0.25);
+    }
+    .hero-mobile-photo-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+    }
+    .hero-mobile-photo .float-card-1 { left: -16px; top: 24px; }
+    .hero-mobile-photo .float-card-2 { right: -16px; bottom: 80px; }
     .hero-tags-row { justify-content: center; }
     .hero-tag { margin-left: auto; margin-right: auto; }
     .hero-subtitle-block { margin-left: auto; margin-right: auto; }
@@ -677,7 +711,19 @@ footer {
     .trust-title { font-size: clamp(22px, 6vw, 32px); }
     .trust-badges { gap: 8px; }
     .trust-badge { font-size: 12px; padding: 6px 12px; }
-    .trust-photo-wrap { display: none !important; }
+    .trust-photo-wrap {
+        display: block !important;
+        text-align: center;
+        margin-top: 28px;
+        margin-bottom: 0;
+    }
+    .trust-photo {
+        max-width: 75vw !important;
+        width: 260px !important;
+        border-radius: 20px !important;
+        margin: 0 auto !important;
+        display: block !important;
+    }
 
     /* Why BA */
     .why-section { padding: 60px 20px; }
@@ -1225,9 +1271,9 @@ footer {
     }
 }
 
-/* Скрыл плашку "IT с Юлей" */
-.hero-subtitle-block {
-    visibility: hidden !important;
+/* Спейсер вместо убранного hero-subtitle-block — сохраняет отступ на десктопе */
+.hero-title-spacer {
+    height: 67px;
 }
 
 /* ===================== LARGE SCREENS (1400px+) ===================== */
