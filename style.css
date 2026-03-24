@@ -691,7 +691,7 @@ footer {
         display: block;
     }
     .hero-mobile-photo .float-card-1 { left: -16px; top: 24px; }
-    .hero-mobile-photo .float-card-2 { right: -16px; bottom: 100px; }
+    .hero-mobile-photo .float-card-2 { right: -36px; bottom: 110px; }
     .hero-tags-row { justify-content: center; }
     .hero-tag { margin-left: auto; margin-right: auto; }
     .hero-subtitle-block { margin-left: auto; margin-right: auto; }
