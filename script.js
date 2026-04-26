@@ -136,14 +136,6 @@ function drawFlowPath() {
 window.addEventListener('load', drawFlowPath);
 window.addEventListener('resize', drawFlowPath);
 
-// Перерисовать после анимации reveal (750 мс)
-const flowSection = document.querySelector('.flow-section');
-if (flowSection) {
-    const obs = new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting) { setTimeout(drawFlowPath, 820); obs.disconnect(); }
-    }, { threshold: 0.15 });
-    obs.observe(flowSection);
-}
 
 // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
 document.querySelectorAll('a[href^="#"]').forEach(link => {
