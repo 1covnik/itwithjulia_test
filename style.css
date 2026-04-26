@@ -180,7 +180,7 @@ body {
 .about-section { padding: 100px 60px; background: white; }
 .about-inner {
     max-width: 1200px; margin: 0 auto;
-    display: grid; grid-template-columns: 440px 1fr;
+    display: grid; grid-template-columns: 360px 1fr;
     gap: 80px; align-items: center;
 }
 .photo-frame-rect {
@@ -196,6 +196,7 @@ body {
 .photo-name { font-family: 'Unbounded', sans-serif; font-size: 18px; font-weight: 700; color: white; margin-bottom: 4px; }
 .photo-role { font-size: 13px; color: rgba(255,255,255,0.8); letter-spacing: 0.3px; font-weight: 500; }
 
+.about-text-side .section-title { font-size: clamp(21px, 2.2vw, 32px); }
 .about-desc {
     font-size: 17px; color: var(--gray); line-height: 1.85;
     margin-bottom: 20px; font-weight: 500;
@@ -238,6 +239,11 @@ body {
     color: var(--navy); margin-bottom: 14px; line-height: 1.35;
 }
 .fit-desc { font-size: 15px; color: var(--gray); line-height: 1.8; font-weight: 500; }
+.fit-card-img {
+    width: 100%; border-radius: 12px; object-fit: contain;
+    aspect-ratio: 16/9; display: block; margin-bottom: 16px;
+    box-shadow: 0 4px 16px rgba(10,32,73,0.1);
+}
 .fit-btn-wrap { text-align: center; }
 
 /* ===================================================================
@@ -266,6 +272,11 @@ body {
     width: 46%;
 }
 .flow-step:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(10,32,73,0.12); }
+.flow-step-img {
+    width: 100%; border-radius: 10px; object-fit: contain;
+    aspect-ratio: 16/9; display: block; margin-bottom: 12px;
+    box-shadow: 0 4px 16px rgba(10,32,73,0.1);
+}
 .flow-step-left  { align-self: flex-start; }
 .flow-step-right { align-self: flex-end; }
 .flow-step-num {
@@ -565,7 +576,7 @@ footer {
     .section-title { font-size: clamp(32px, 2.8vw, 52px); }
     .hero-badge { font-size: 16px; padding: 18px 26px; max-width: 370px; }
     .hero-image-wrap { width: 320px; height: 320px; }
-    .about-inner { grid-template-columns: 480px 1fr; }
+    .about-inner { grid-template-columns: 400px 1fr; }
     .fit-grid { gap: 32px; }
     .result-grid { gap: 32px; }
     .free-grid { gap: 32px; }
