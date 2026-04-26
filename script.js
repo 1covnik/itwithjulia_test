@@ -59,6 +59,92 @@ document.querySelectorAll('.module-header').forEach(header => {
     });
 });
 
+// ===== FLOW — из низа блока в бок следующего (как на макете) =====
+function drawFlowPath() {
+    const container = document.querySelector('.flow-steps');
+    const steps     = Array.from(document.querySelectorAll('.flow-step'));
+    const svg       = document.getElementById('flowSvg');
+    const arrows    = svg ? Array.from(svg.querySelectorAll('.flow-arrow')) : [];
+
+    if (!container || steps.length < 2 || !svg || !arrows.length) return;
+
+    // отключаем на мобиле
+    if (window.innerWidth <= 768) {
+        arrows.forEach(a => a.setAttribute('d', ''));
+        return;
+    }
+
+    const cr = container.getBoundingClientRect();
+
+    const pts = steps.map(s => {
+        const r = s.getBoundingClientRect();
+        return {
+            cx: r.left - cr.left + r.width / 2,
+            cy: r.top  - cr.top  + r.height / 2,
+
+            top:    r.top    - cr.top,
+            bottom: r.bottom - cr.top,
+
+            left:  r.left  - cr.left,
+            right: r.right - cr.left
+        };
+    });
+
+    // 🔥 основная магия
+    const curve = (a, b) => {
+        const fromX = a.cx;
+        const fromY = a.bottom;
+
+        // определяем сторону входа
+        const goLeft = b.cx < a.cx;
+
+        const toX = goLeft ? b.right : b.left;
+        const toY = b.cy;
+
+        // адаптивные отступы (чтобы не ломалось на разных экранах)
+        const dx = Math.abs(fromX - toX);
+        const dy = Math.abs(fromY - toY);
+
+        const offsetY = Math.max(60, dy * 0.4);
+        const offsetX = Math.max(40, dx * 0.3);
+
+        const c1x = fromX;
+        const c1y = fromY + offsetY;
+
+        const c2x = goLeft ? toX + offsetX : toX - offsetX;
+        const c2y = toY;
+
+        return `M ${fromX} ${fromY} C ${c1x} ${c1y}, ${c2x} ${c2y}, ${toX} ${toY}`;
+    };
+
+    // строим пути
+    const paths = [];
+    for (let i = 0; i < pts.length - 1; i++) {
+        paths.push(curve(pts[i], pts[i + 1]));
+    }
+
+    arrows.forEach((arrow, i) => {
+        arrow.setAttribute('d', paths[i] || '');
+    });
+
+    // обновляем SVG
+    svg.setAttribute('viewBox', `0 0 ${cr.width} ${cr.height}`);
+    svg.style.width  = cr.width + 'px';
+    svg.style.height = cr.height + 'px';
+}
+
+window.addEventListener('load', drawFlowPath);
+window.addEventListener('resize', drawFlowPath);
+
+// Перерисовать после анимации reveal (750 мс)
+const flowSection = document.querySelector('.flow-section');
+if (flowSection) {
+    const obs = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) { setTimeout(drawFlowPath, 820); obs.disconnect(); }
+    }, { threshold: 0.15 });
+    obs.observe(flowSection);
+}
+
 // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
 document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
