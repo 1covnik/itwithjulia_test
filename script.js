@@ -133,8 +133,36 @@ function drawFlowPath() {
     svg.style.height = cr.height + 'px';
 }
 
-window.addEventListener('load', drawFlowPath);
-window.addEventListener('resize', drawFlowPath);
+// ===== FLOW ICONS — абсолютное позиционирование фоновых значков =====
+function positionFlowIcons() {
+    const container = document.querySelector('.flow-steps');
+    const steps     = Array.from(document.querySelectorAll('.flow-step'));
+    const icons     = Array.from(document.querySelectorAll('.flow-bg-icon'));
+
+    if (!container || steps.length < 5 || icons.length < 5) return;
+    if (window.innerWidth <= 768) { icons.forEach(ic => ic.style.display = 'none'); return; }
+    icons.forEach(ic => ic.style.display = '');
+
+    const cr      = container.getBoundingClientRect();
+    const iconSize = 200;
+
+    steps.forEach((step, i) => {
+        const icon = icons[i];
+        if (!icon) return;
+        const r   = step.getBoundingClientRect();
+        const cy  = r.top - cr.top + r.height / 2;
+        // чётные индексы (0,2,4) — блоки слева → значок справа; нечётные — наоборот
+        const leftBlock = i % 2 === 0;
+        const iconX = leftBlock
+            ? cr.width * 0.75 - iconSize / 2
+            : cr.width * 0.25 - iconSize / 2;
+        icon.style.top  = (cy - iconSize / 2) + 'px';
+        icon.style.left = iconX + 'px';
+    });
+}
+
+window.addEventListener('load', () => { drawFlowPath(); positionFlowIcons(); });
+window.addEventListener('resize', () => { drawFlowPath(); positionFlowIcons(); });
 
 
 // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
