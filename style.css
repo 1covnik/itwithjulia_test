@@ -493,14 +493,8 @@ body {
    ЭКРАН 8: TRUST
 =================================================================== */
 .trust-section {
-    background: linear-gradient(155deg, var(--navy) 0%, #1a4480 55%, var(--blue) 100%);
+    background: linear-gradient(155deg, #1a3a6b 0%, #2e6ab5 45%, #5a9fd4 75%, #c8e0f4 100%);
     padding: 80px 60px; position: relative; overflow: hidden;
-}
-.trust-section::before {
-    content:''; position:absolute; inset:0;
-    background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-    background-size: 50px 50px;
 }
 .trust-inner {
     position: relative; z-index: 1; max-width: 1200px; margin: 0 auto;
