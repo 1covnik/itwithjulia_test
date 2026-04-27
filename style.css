@@ -156,6 +156,7 @@ body {
     animation: pulseDot 2s infinite;
 }
 @keyframes pulseDot { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.5;transform:scale(1.5);} }
+.badge-icon { width: 32px; height: 32px; object-fit: contain; flex-shrink: 0; }
 
 @keyframes floatBadge { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
 .float-anim { animation: floatBadge 5s ease-in-out infinite; }
@@ -208,7 +209,7 @@ body {
     padding: 18px 24px; border-radius: 14px;
     font-size: 17px; font-weight: 700; color: var(--navy); margin-top: 8px;
 }
-.highlight-icon { font-size: 22px; flex-shrink: 0; }
+.highlight-icon { width: 36px; height: 36px; object-fit: contain; flex-shrink: 0; }
 
 /* ===================================================================
    ЭКРАН 3: FIT
@@ -279,6 +280,13 @@ body {
 }
 .flow-step-left  { align-self: flex-start; }
 .flow-step-right { align-self: flex-end; }
+
+/* Фоновые значки — позиционируются JS */
+.flow-bg-icon {
+    position: absolute; width: 200px; height: 200px;
+    object-fit: contain; z-index: 0; pointer-events: none;
+    filter: drop-shadow(0 8px 24px rgba(10,32,73,0.18));
+}
 .flow-step-num {
     font-family: 'Unbounded', sans-serif; font-size: 28px; font-weight: 900;
     color: var(--blue-light); line-height: 1; margin-bottom: 10px;
@@ -298,12 +306,7 @@ body {
    ЭКРАН 5: RESULT
 =================================================================== */
 .result-section { padding: 100px 60px; background: var(--navy); position: relative; overflow: hidden; }
-.result-section::before {
-    content:''; position:absolute; inset:0;
-    background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-    background-size: 50px 50px;
-}
+
 .result-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
 .result-inner .section-title { color: white; }
 .result-inner .accent-text {
@@ -312,12 +315,17 @@ body {
 }
 .result-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
 .result-card {
-    background: rgba(255,255,255,0.08); border-radius: 24px; padding: 36px 28px;
+    background: rgba(255,255,255,0.08); border-radius: 24px;
+    padding: 98px 28px 36px;
     border: 1px solid rgba(255,255,255,0.13);
     transition: transform 0.3s, background 0.3s;
+    position: relative; overflow: visible;
 }
 .result-card:hover { transform: translateY(-6px); background: rgba(255,255,255,0.13); }
-.result-icon-wrap { margin-bottom: 20px; }
+.result-icon-wrap {
+    position: absolute; top: -34px; left: 0;
+}
+.result-icon { width: 112px; height: 112px; object-fit: contain; display: block; }
 .result-text { font-size: 16px; color: rgba(255,255,255,0.92); line-height: 1.8; font-weight: 500; }
 
 /* ===================================================================
@@ -493,7 +501,7 @@ body {
    ЭКРАН 8: TRUST
 =================================================================== */
 .trust-section {
-    background: linear-gradient(155deg, #1a3a6b 0%, #2e6ab5 45%, #5a9fd4 75%, #c8e0f4 100%);
+    background: linear-gradient(155deg, #1a3a6b 0%, #2e6ab5 45%, #5a9fd4 75%, #5a9fd4 75%);
     padding: 80px 60px; position: relative; overflow: hidden;
 }
 .trust-inner {
@@ -649,6 +657,7 @@ footer {
     .flow-section { padding: 60px 20px; }
     .flow-steps { gap: 12px; }
     .flow-step, .flow-step-left, .flow-step-right, .flow-step-final { width: 100%; align-self: stretch; }
+    .flow-bg-icon { display: none; }
     #flowSvg { display: none; }
 
     /* Result */
